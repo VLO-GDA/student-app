@@ -1,0 +1,39 @@
+nav {
+  text-transform: uppercase;
+  font-weight: 600;
+  li:hover {
+    background: rgba(0,0,0,0.1);
+    a:hover {
+      background: none;
+    }
+  }
+
+  ul a {
+    padding: 0;
+  }
+}
+
+//Icons
+[class*="mdi-"] {
+  display: inline-block !important;
+  vertical-align: top;
+}
+
+[class*="mdi-action-"]:hover {
+  cursor: pointer;
+}
+
+i.small {
+  vertical-align: top;
+}
+
+.topacity-transition {
+  transition: all .3s ease;
+  overflow: hidden;
+}
+
+.topacity-enter, .topacity-leave {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+}

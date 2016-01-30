@@ -1,0 +1,34 @@
+{
+  "menu": {
+    "home": "Home",
+    "newspaper": "Stefan",
+    "timetable": "Plan",
+    "settings": "Ustawienia"
+  },
+  "settings": {
+    "group": "Klasa",
+    "number": "Numerek",
+    "choose": "Wybierz",
+    "notifications": "Otrzymuj powiadomienia o szczęśliwym numerku",
+    "articles": "Pobieraj newsy"
+  },
+  "timetable": {
+    "class": "Lekcja",
+    "room": "Sala",
+    "home": "localhost",
+    "hour": "Godzina",
+    "warning": "Plan lekcji jest poglądowy i może odbiegać od stanu faktycznego, nie uwzględnia także świąt i zastępstw.",
+    "days": [
+      "Poniedziałek",
+      "Wtorek",
+      "Środa",
+      "Czwartek",
+      "Piątek"
+    ]
+  },
+  "main": {
+    "luckyNumber": "Numerek",
+    "nextClass": "Następna lekcja",
+    "quote": "Cytat"
+  }
+}

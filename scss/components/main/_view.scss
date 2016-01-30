@@ -1,0 +1,19 @@
+.info-panel {
+  background: darken($primary-color-light,2%);
+  .col {
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-size: 6vw;
+    text-align: center;
+    .hint {
+      font-size: 9pt;
+      letter-spacing: 1pt;
+      margin-bottom: 5px;
+      line-height: 20px;
+      display: block;
+      text-transform: uppercase;
+    }
+  }
+}

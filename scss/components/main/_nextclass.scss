@@ -1,0 +1,10 @@
+.next-class {
+  //background: darken($primary-color-light,10%);
+  a {
+    &:hover,
+    &:link,
+    &:visited {
+      color: white;
+    }
+  }
+}
