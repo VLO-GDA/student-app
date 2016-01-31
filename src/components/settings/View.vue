@@ -26,9 +26,9 @@
   from '../../stores/store';
 
   const GROUPS = [
-    "IA", "IB", "IC", "ID", "IF",
-    "IIA", "IIB", "IIC", "IID", "IIF",
-    "IIIA", "IIIB", "IIIC", "IIID", "IIIF"
+    "IA", "IB", "IC", "ID","IE", "IF",
+    "IIA", "IIB", "IIC", "IID", "IIE" ,"IIF",
+    "IIIA", "IIIB", "IIIC", "IIID","IIIE", "IIIF"
   ];
 
   export default {
