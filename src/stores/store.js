@@ -3,8 +3,7 @@ import {
 }
 from 'events';
 import {
-  API_URL,
-  NEWS_RSS
+  API_URL
 }
 from "../consts";
 
@@ -19,12 +18,16 @@ export const store = new EventEmitter();
 
 store.fetch = function(endpoint) {
   return new Promise((resolve, reject) => {
-    request.get(API_URL + endpoint).end(function(err, res) {
+    request.get(API_URL + endpoint).timeout(3000).end(function(err, res) {
       if (err) {
         reject(err);
         return;
       }
-      resolve(res.text);
+      if (res.status < 400) {
+        resolve(res.text);
+      } else {
+        reject("Status code invalid");
+      }
     });
   });
 };
@@ -55,7 +58,10 @@ store.getOrFetch = function(endpoint, validate) {
     store.fetch(endpoint).then((res) => {
       let updated = JSON.parse(res);
       localStorage.setItem(endpoint, res);
-      resolve({valid:validate(updated), data:updated});
+      resolve({
+        valid: validate(updated),
+        data: updated
+      });
     }).catch((e) => {
       result.error = e;
       resolve(result);
@@ -92,16 +98,14 @@ store.getQuote = function() {
 store.getNews = function(forceUpdate = false) {
   return new Promise((resolve, reject) => {
     let current = store.get("news", (element) => {
-      //DRY this code...
-      //return false;
       return forceUpdate ? false : (new Date().getTime() - new Date(element.date).getTime() < 1000 * 60 * 60);
     });
     if (current.valid) {
       resolve(current);
       return;
     }
-    request.get(API_URL + "news").end(function(err, res) {
-      if (err) {
+    request.get(API_URL + "news").timeout(3000).end(function(err, res) {
+      if (err || res.status >= 400) {
         resolve(current);
         return;
       }
@@ -120,12 +124,15 @@ store.getNews = function(forceUpdate = false) {
             link: encodeURI(news.link),
             date: decodeURI(news.pubDate),
             author: decodeURI(news["dc:creator"]),
-            excerpt: decodeURI(news.description).replace(/(<([^>]+)>)/ig,"").replace(/&nbsp;/g,' ').replace("czytaj więcej", "")
+            excerpt: decodeURI(news.description).replace(/(<([^>]+)>)/ig, "").replace(/&nbsp;/g, ' ').replace("czytaj więcej", "")
           };
           result.news.push(art);
         }
         localStorage.setItem("news", JSON.stringify(result));
-        resolve({valid:true, data:result});
+        resolve({
+          valid: true,
+          data: result
+        });
       });
     });
   });
