@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Mobile website adapted to be pinned to OS home screen and run offline imitating an application",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --no-info",
+    "dev": "webpack-dev-server --inline --hot --no-info --host 192.168.1.100",
     "build": "NODE_ENV=production webpack --progress --hide-modules"
   },
   "repository": {

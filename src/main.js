@@ -4,6 +4,8 @@ import App from './components/App.vue';
 import MainView from './components/main/View.vue';
 import SettingsView from './components/settings/View.vue';
 import TimetableView from './components/timetable/View.vue';
+import MediaView from './components/media/View.vue';
+
 const i18n = require('vue-i18n');
 
 if(navigator.serviceWorker) {
@@ -43,6 +45,9 @@ router.map({
   },
   '/timetable': {
     component: TimetableView
+  },
+  '/media': {
+    component: MediaView
   }
 });
 

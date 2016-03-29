@@ -1,6 +1,6 @@
 <template>
-  <main transition="topacity">
-    <div class="row info-panel">
+  <main transition="topacity" class="">
+    <div class="row info-panel z-depth-1">
       <lucky-number></lucky-number>
       <next-class keep-alive></next-class>
       <quote></quote>

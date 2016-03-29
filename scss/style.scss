@@ -29,7 +29,7 @@ $icons-font-path: "../node_modules/materialize-css/font/material-design-icons/";
 //@import "~materialize-css/sass/components/modal";
 //@import "~materialize-css/sass/components/collapsible";
 //@import "~materialize-css/sass/components/chips";
-//@import "~materialize-css/sass/components/materialbox";
+@import "~materialize-css/sass/components/materialbox";
 @import "~materialize-css/sass/components/form";
 //@import "~materialize-css/sass/components/table_of_contents";
 //@import "~materialize-css/sass/components/sideNav";
@@ -49,3 +49,5 @@ $icons-font-path: "../node_modules/materialize-css/font/material-design-icons/";
 @import "components/timetable/view";
 
 @import "components/settings/view";
+
+@import "components/media/view";

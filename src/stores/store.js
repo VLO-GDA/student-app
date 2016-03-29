@@ -95,6 +95,12 @@ store.getQuote = function() {
   });
 };
 
+store.getMedia = function(forceUpdate = false) {
+  return store.getOrFetch("media", (element) => {
+    return forceUpdate ? false : (new Date().getTime() - new Date(element.date).getTime() < 1000 * 60 * 60);
+  });
+};
+
 store.getNews = function(forceUpdate = false) {
   return new Promise((resolve, reject) => {
     let current = store.get("news", (element) => {
